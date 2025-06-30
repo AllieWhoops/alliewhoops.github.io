@@ -13,20 +13,23 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Allie Lewis Portfolio
-email: alessandra1lewis@gmail.com
+title: >-
+  Allie Lewis
+email: 
 description: >- # this means to ignore newlines until "baseurl:"
-  My portfolio that shows off all the cool stuff I've been doing!
-  This includes relevant university projects as well as personal things!
+  My Portfolio
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://alliewhoops.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  AllieWhoops
 
 # Build settings
 markdown: kramdown
-theme: minima
+
+remote_theme: pages-themes/cayman@v0.2.0
+
 plugins:
   - jekyll-feed
+  - jekyll-remote-theme # add this line to the plugins list if you already have one
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
