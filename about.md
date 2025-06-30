@@ -15,5 +15,5 @@ I also play a lot of video games. I play Final Fantasy XIV and take part in high
 
 <figure>
     <img src="/canvas.jpg" width=400>
-    <figcaption>*A picture of me in June 2025.*</figcaption>
+    <figcaption><i>A picture of me in June 2025.*</i></figcaption>
 </figure>
