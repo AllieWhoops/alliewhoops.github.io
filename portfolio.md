@@ -26,4 +26,6 @@ The premise of the game is that the players take on the role of chickens on a fa
 # **Study Leave (Winter 2024)**
 
 
-# **Brooklyn Nine-Nine Precinct Environment**
+# **Brooklyn Nine-Nine Precinct Environment (Autumn 2024)**
+
+# **Wizardle (Spring 2024)**
