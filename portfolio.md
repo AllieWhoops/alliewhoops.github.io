@@ -5,26 +5,19 @@ permalink: /portfolio/
 description: My portfolio, containing both my university projects and personal experiments!
 ---
 
-# **LiTetris**
-> Summer 2025
+# **LiTetris** - Summer 2025
 
-<img src="/assets/images/litetris2.png" style="height:400px;margin-left:15px;float:right">
-<img src="/assets/images/litetris.png" style="height:400px;margin-left:15px;float:right">
+> [More Info]({{site.url}}/portfolio/litetris)
 
-In order to improve my C++ programming skills, I decided that I wanted to try and program a game from scratch in the language. I re-created Tetris in C++ using the [SFML](https://www.sfml-dev.org/) graphics library. SFML is a multimedia graphics library built on OpenGL that (amongst other things) provides functions for creating windows, reading inputs and drawing shapes. I used this library to render a front-end for the game, and coded the back end functionality in base C++.
-
-This project helped me to further understand C++ as a language, as well as manage project file structure and using CMake templates to configure builds. The Github repository for LiTetris can be found [here](https://github.com/AllieWhoops/Litetris).
-
-## **Demo Video**
-<iframe width="560" height="315" src="https://www.youtube.com/embed/-QhqoLjAuZ8?si=68P2N4my0hmTldzN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+In order to improve my C++ programming skills, I decided that I wanted to try and program a game from scratch in the language. I re-created Tetris in C++ using the [SFML](https://www.sfml-dev.org/) multimedia graphics library, which is built on OpenGL.
 
 <hr/>
 
-# **CoopRPG**
-> 2024-2025
+# **CoopRPG** - 2024-2025
+> *Page coming soon*
 
-<img src="/assets/images/coop 1.png" style="width:400px;height:225px;margin-right:15px;">
-<img src="/assets/images/coop 2.png" style="width:400px;height:225px;margin-left:15px;float:right">
+<img src="/assets/images/coop 1.png" style="width:390px;height:225px;margin-right:15px;">
+<img src="/assets/images/coop 2.png" style="width:390px;height:225px;margin-left:15px;float:right">
 
 As part of my final year of my computer science degree, I had to undertake a project across the year. The prompt I chose to base this project on was 'a networked multiplayer game', as it aligned with my interest in the game development industry. The game I created was a turn-based RPG with roguelike elements (namely procedural level design and death resulting in a game-over state) for up to four players. To develop it, I used the Unity engine, writing scripts in C#. This helped me to gain a strong understanding of development and workflows in Unity, and get to grips with Unity's [Netcode for GameObjects](https://docs-multiplayer.unity3d.com/netcode/current/about/) library.
 
@@ -35,11 +28,11 @@ The premise of the game is that the players take on the role of chickens on a fa
 
 <hr/>
 
-# **Study Leave**
-> Winter 2024
+# **Study Leave** - Winter 2024
+> *Page coming soon*
 
-<img src="/assets/images/study leave 1.png" style="width:400px;height:225px;margin-right:15px;">
-<img src="/assets/images/study leave 2.png" style="width:400px;height:225px;margin-left:15px;float:right">
+<img src="/assets/images/study leave 1.png" style="width:390px;height:225px;margin-right:15px;">
+<img src="/assets/images/study leave 2.png" style="width:390px;height:225px;margin-left:15px;float:right">
 
 As a group project in my module on VR, graphics and games, I worked on an educational puzzle game with four other students. The game was coded in C# and used the Unity game engine. We created several computer-science-themed puzzles involving skills like binary-hexadecimal conversion and bit shifting, and placed them in an environment based on one of the buildings on the university campus.
 
@@ -50,11 +43,11 @@ The game used Unity's HD render pipeline to allow for immersive and spooky graph
 
 <hr/>
 
-# **Brooklyn Nine-Nine Virtual World**
-> Autumn 2024
+# **Brooklyn Nine-Nine Virtual World** - Autumn 2024
+> *Page coming soon*
 
-<img src="/assets/images/b99 1.png" style="width:400px;height:225px;margin-right:15px;">
-<img src="/assets/images/b99 2.png" style="width:400px;height:225px;margin-left:15px;float:right">
+<img src="/assets/images/b99 1.png" style="width:390px;height:225px;margin-right:15px;">
+<img src="/assets/images/b99 2.png" style="width:390px;height:225px;margin-left:15px;float:right">
 
 As an assignment for my VR, graphics and games module, I was tasked with creating a virtual building in Unity. I decided to recreate the precinct office from the sitcom *Brooklyn Nine-Nine*. I used Unity's [ProBuilder](https://docs.unity3d.com/Packages/com.unity.probuilder@6.0/manual/index.html) library to manipulate basic shapes to model the building and included a number of additional interaction features to the world with C# scripts, notably a microwave and elevator starting area. I also played around with Unity's lighting settings to properly emulate the building's interior light, as well as the setting sun on the skyline.
 
@@ -65,8 +58,8 @@ This project was my first time using the Unity Engine to make a 3D enviroment, a
 
 <hr/>
 
-# **Wizardle**
-> Spring 2024
+# **Wizardle** - Spring 2024
+> *Page coming soon*
 
 <img src="/assets/images/wizardle 1.png" style="height:250px;float:left;margin-right:15px">
 <img src="/assets/images/wizardle 2.png" style="height:250px;margin-right:15px;float:left">

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/png" href="/favicon.png" >
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>LiTetris | AllieWhoops</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="LiTetris" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An overview of my recreation of Tetris in C++ using SMFL, called LiTetris!" />
+<meta property="og:description" content="An overview of my recreation of Tetris in C++ using SMFL, called LiTetris!" />
+<link rel="canonical" href="http://localhost:4000/portfolio/litetris/" />
+<meta property="og:url" content="http://localhost:4000/portfolio/litetris/" />
+<meta property="og:site_name" content="AllieWhoops" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="LiTetris" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"An overview of my recreation of Tetris in C++ using SMFL, called LiTetris!","headline":"LiTetris","url":"http://localhost:4000/portfolio/litetris/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=a89a677547af6834d28de74fcd332cc828248021">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">LiTetris</h1>
+      <h2 class="project-tagline">An overview of my recreation of Tetris in C++ using SMFL, called LiTetris!</h2>
+        <a href="http://localhost:4000" class="btn">Homepage</a>
+        <a href="http://localhost:4000/portfolio/" class="btn">Portfolio</a>
+        <a href="http://localhost:4000/about/" class="btn">About Me</a>
+      
+        <a href="https://github.com/AllieWhoops/alliewhoops.github.io" class="btn">View on GitHub</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <h1 id="background">Background</h1>
+<p>As an exercise to improve my familiarity with C++ as a language, I decided to create a game using the language. After some consideration, I settled on Tetris as a good starting point. I had used the SDL2 graphics library in my 1st year at university, but decided to use SFML instead for this project as it claimed to be ‘object-oriented SDL’. It seemed to fulfil all of the criteria I was looking for: relatively low-level (at least compared to something like Unreal Engine), easy to get started with, and designed to be used with C++ over C (as I wanted to get more comfortable with C++’s syntax as a primary goal).</p>
+
+<p>After toying around with creating windows and handling inputs (and making a window that runs away from your mouse cursor), I got started figuring out how to implement Tetris.</p>
+
+<h1 id="requirements--design">Requirements &amp; Design</h1>
+<h3 id="functional-requirements">Functional Requirements</h3>
+<ul>
+  <li>The game should create a window that displays the game board, which should be a 10x20 grid with 2 extra ‘spawn rows’ at the top.</li>
+  <li>Pieces should appear one at a time in the spawn rows, and fall slowly over time until they land on the bottom of the grid or on another piece.</li>
+  <li>The player should be able to rotate pieces as well as move them down, left and right.</li>
+  <li>The game should end when a piece settles on the two rows above the grid.</li>
+  <li>The pieces should be generated in a ‘7-bag’, where the game creates a bucket containing one of every piece type, then randomly selecting pieces from the bucket until it is empty.</li>
+</ul>
+
+<h3 id="non-functional-requirements">Non-Functional Requirements</h3>
+<ul>
+  <li>The game should be relatively simple (no fancy features like holding, wall-kicking, etc.). This is an exercise to improve familiarity with C++, not an attempt to perfectly recreate modern Tetris games.</li>
+  <li>The game should responsive to player input.</li>
+  <li>The game should have a small file size (less than 10MB).</li>
+  <li>The game should only use functions from core C++ and SFML libraries.</li>
+</ul>
+
+<h3 id="design-assumptions">Design Assumptions</h3>
+<p>Going into this project, I had a list of basic assumptions that would guide my development:</p>
+<ul>
+  <li>The core of the game is the grid, which would be represented in the back end by a 2-dimensional array.</li>
+  <li>I would need classes for the grid, each grid space, the shapes that fall on the grid, and a bag that holds upcoming shapes.</li>
+  <li>The game would handle all of the mechanics in the back-end, like updating placement of shapes as well as clearing and shifting lines.</li>
+  <li>The front end (the SFML-created window) will be used to take player inputs and render the results of the back-end changes on the screen.</li>
+</ul>
+
+<h1 id="implementation">Implementation</h1>
+
+<h3 id="the-grid">The Grid</h3>
+<p>The default Tetris grid is divided into squares, and is drawn to appear 10 squares wide by 20 squares tall. Shapes spawn just above the visible grid, into rows 21 and 22. This means we need a 10x22 array to hold every piece. After some research and testing, the clear choice for this data structure appeared to be two nested <code class="language-plaintext highlighter-rouge">std::array</code>s. I used this over a C-style array (<code class="language-plaintext highlighter-rouge">T[][]</code>) to allow for direct assignments of sections of the array (this is useful for shifting lines after one is cleared).</p>
+
+<h3 id="grid-spaces">Grid Spaces</h3>
+<p>The spaces in the grid (the actual values in the arrays) are represented by a wrapper class for SFML’s <code class="language-plaintext highlighter-rouge">sf::Color</code> class, called <strong>Gridspace</strong>. This class is initialised to be transparent (<code class="language-plaintext highlighter-rouge">sf::Color::Transparent</code>), and has a method to get an identifying character representation of the space (used for testing in the console).</p>
+
+<h3 id="shape-movement-and-line-clearing">Shape Movement and Line Clearing</h3>
+<p>When a shape needs to move (for example, being rotated or lowered), the game first performs a check to ensure that the new position is valid. This is done by passing through the new coordinates as an array, meaning that this method can be used for every type of movement by just changing the method that passes in the parameters. It iterates through each point, checking if any are not transparent, and return false if any non-transparent points are <strong>not</strong> inside of the shape itself.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bool Grid::CheckMoveLegal(std::array&lt;std::array&lt;int, 2&gt;,4&gt; newCoords, Tetris::Shapes::Shape thisShape){
+    // If any space is not transparent, returns false
+    int problemPoints = 0;
+
+    for(auto point : newCoords){
+
+        std::cout &lt;&lt; point[0] &lt;&lt; " " &lt;&lt; point[1] &lt;&lt; "\n";
+
+        if(point[0] &gt;= GRID_WIDTH || point[0] &lt; 0){
+            std::cout &lt;&lt; "X coord not in range";
+            return false;
+        }
+        if(point[1] &gt;= GRID_HEIGHT || point[1] &lt; 0){
+            std::cout &lt;&lt; "Y coord not in range" &lt;&lt; "\n";
+            return false;
+        }
+
+        if(arrGrid[point[0]][point[1]].col != sf::Color::Transparent){
+            problemPoints++;
+
+            for(auto myPoint : thisShape.GetCoords()){
+                if(point == myPoint){
+                    problemPoints--;
+                }   
+            }  
+        }
+    }
+
+    if(problemPoints &gt; 0){
+        return false;
+    }
+
+    return true;
+}
+</code></pre></div></div>
+
+<p>In Tetris, the shapes rotate around a specified centre point. For most pieces, this is the centre of one of the ‘middle squares’ (see image). This makes it relatively trivial to apply 2 transformations to the shape’s coordinates using integer matrix multiplication.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>std::array&lt;std::array&lt;int, 2&gt;, 2&gt; rotMatrix;
+
+if(clockwise){ // Position number &amp; rotation matrix set based on rotation direction
+    rotMatrix = {
+        {
+            {0, 1},
+            {-1, 0}
+        }
+    };
+}
+else{
+    rotMatrix = {
+        {
+            {0, -1},
+            {1, 0}
+        }
+    };
+}
+
+for(int i = 0; i &lt; 4; i++){ // Performs 90* rotation on the coordinates with the power of matrices
+    int x = coords[i][0] - origin[0]; // origin is the coordinates of the centre of rotation
+    int y = coords[i][1] - origin[1];
+
+    coords[i][0] = rotMatrix[0][0] * x + rotMatrix[1][0] * y + origin[0];
+    coords[i][1] = rotMatrix[0][1] * x + rotMatrix[1][1] * y + origin[1];
+}
+</code></pre></div></div>
+
+<figure style="margin-left:15px;float:right">
+    <img src="/assets/images/SRS-pieces.png" style="height:250px;margin-left:30px" />
+    <figcaption><i>Image courtesy of TetrisWiki</i></figcaption>
+</figure>
+<p>The O piece (yellow) and the I piece (light blue) have a centre of rotation on the line between two squares, which makes things more complicated. For the O piece, this actually doesn’t matter since it is rotationally symmetrical and therefore rotating it does nothing. However, this means another solution is still required for I pieces. In the end, I decided that the most efficient solution would be to hardcode the rotations for I pieces, since there are only four permutations. This does reduce the elegance of the code somewhat, but it worked and allowed me to move on to making the rest of the game.</p>
+
+<h3 id="the-front-end">The Front-End</h3>
+<p>As discussed above, the front end of the program is mostly concerned with taking player inputs and drawing a representation of the grid on the screen. It also handles the game’s ticks, which happen every 0.6 seconds. If a piece is stationary for a whole tick, it will drop by one row, and if the bottom of the piece is touching something for a tick, it is locked in place and a new controllable piece spawns.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>else if(const auto* keyPressed = event-&gt;getIf&lt;sf::Event::KeyPressed&gt;()){ // Checks if a key is pressed down
+    if(keyPressed-&gt;scancode == sf::Keyboard::Scancode::R){
+        if(myGrid.CheckMoveLegal(newShape.TryRotate(), newShape)){ // Tests if piece can rotate before performing rotation
+            myGrid.ClearSpaces(newShape.GetCoords()); // clears old occupied spaces
+            newShape.Rotate(); // rotates stored coordinates of shape
+            myGrid.AddShape(newShape); // adds shape to the 2d array that represents the grid
+        }
+        else{
+            std::cout &lt;&lt; "Illegal\n";
+        }  
+
+        lastTickTime = time(NULL); // reset last tick to now
+    }
+    else if...
+}
+</code></pre></div></div>
+
+<p>Once any player input is handled, the game checks to see if the current active piece can be moved down a row. If it can, the piece is moved down. If it cannot, the piece is therefore in its final position. If this final position is in the two rows above the grid walls, then the player has losed and the game is over. After all of the logic has concluded, the game draws the grid walls and all of the filled spaces on the screen, before the logic loop restarts for the next frame.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if(difftime(now, lastTickTime) &gt; gameTickLength){ // DoGameTick
+    lastTickTime = now;
+    if(myGrid.CheckMoveLegal(newShape.TryMove(Tetris::Shapes::Direction::Down), newShape)) // checks if moving downwards is possible
+    {   // shape falls one row
+        myGrid.ClearSpaces(newShape.GetCoords());
+        newShape.Move(Tetris::Shapes::Direction::Down);
+        
+        myGrid.AddShape(newShape);
+    }
+    else{ // shape is in final position
+        if(!myGrid.CheckIfGameOver(newShape)){ // checks if shape has finished in spawn rows
+            myGrid.AddShape(newShape); // draws new position of shape
+            newShape = myBag.GetShape(); // pull new shape from the 7-bag
+            myGrid.DoLineClears(); // check if any lines have been filled and should be cleared
+        }
+        else{ // Game has ended and game over message can be displayed
+            isGameOngoing = false;
+        }
+    }
+}
+</code></pre></div></div>
+
+<h1 id="skills-used">Skills Used</h1>
+<ul>
+  <li>C++ Programming</li>
+  <li>Object-oriented thinking and design</li>
+  <li>Debugging in Visual Studio using breakpoints</li>
+  <li>Git Version Control</li>
+</ul>
+
+<h1 id="summary">Summary</h1>
+<p><img src="/assets/images/litetris2.png" style="height:250px;margin-right:15px;float:right" />
+<img src="/assets/images/litetris.png" style="height:250px;margin-right:15px;float:right" />
+This project helped me to further understand C++ as a language, as well as manage project file structure and using CMake templates to configure builds. The Github repository for LiTetris can be found <a href="https://github.com/AllieWhoops/Litetris">here</a>.</p>
+
+<p>I used this library to render a front-end for the game, and coded the back end functionality in base C++.</p>
+
+<h2 id="demo-video">Demo Video</h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-QhqoLjAuZ8?si=68P2N4my0hmTldzN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/AllieWhoops/alliewhoops.github.io">alliewhoops.github.io</a> is maintained by <a href="https://github.com/AllieWhoops">AllieWhoops</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>
