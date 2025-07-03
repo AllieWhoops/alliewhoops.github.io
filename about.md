@@ -5,7 +5,6 @@ permalink: /about/
 description: A little info about me as a person!
 ---
 
----
 <style>
     figure {
         float: right;
