@@ -5,6 +5,13 @@ permalink: /portfolio/
 description: My portfolio, containing both my university projects and personal experiments!
 ---
 
+# **Slash & Learn** - August 2025
+> [More Info]({{site.url}}/portfolio/slash-and-learn)
+
+I entered the 2025 Gamemaker's Toolkit Game Jam as a solo developer. Taking the theme of 'loops', I developed a singleplayer hack-and-slash game which revolves around the player rewinding time to avoid attacks from enemies.
+
+<hr/>
+
 # **LiTetris** - Summer 2025
 
 > [More Info]({{site.url}}/portfolio/litetris)
@@ -14,17 +21,9 @@ In order to improve my C++ programming skills, I decided that I wanted to try an
 <hr/>
 
 # **CoopRPG** - 2024-2025
-> *Page coming soon*
+> [More Info]({{site.url}}/portfolio/cooprpg)
 
-<img src="/assets/images/coop 1.png" style="width:390px;height:225px;margin-right:15px;">
-<img src="/assets/images/coop 2.png" style="width:390px;height:225px;margin-left:15px;float:right">
-
-As part of my final year of my computer science degree, I had to undertake a project across the year. The prompt I chose to base this project on was 'a networked multiplayer game', as it aligned with my interest in the game development industry. The game I created was a turn-based RPG with roguelike elements (namely procedural level design and death resulting in a game-over state) for up to four players. To develop it, I used the Unity engine, writing scripts in C#. This helped me to gain a strong understanding of development and workflows in Unity, and get to grips with Unity's [Netcode for GameObjects](https://docs-multiplayer.unity3d.com/netcode/current/about/) library.
-
-The premise of the game is that the players take on the role of chickens on a farm, and they must brave the dangers of the farm (like rats, fleas and foxes) to reach the barn (a paradise where there are endless seeds to eat). They progress through levels and eventually reach the farmer, who is the final boss that guards the barn. There are four player classes that represent the four classic fantasy archetypes: the warrior (an armoured fighter), the mage (a wizard), the shadow (a rogue) and the cleric (a priest). Each of these classes have different abilities that allow them to contribute to combat in different ways.
-
-## **Demo Video**
-<iframe width="560" height="315" src="https://www.youtube.com/embed/KEmjXTpYyY4?si=ZJ-vmfvgzwHD6cB3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+For my degree project in my final year of university, I created an online turn-based RPG in Unity with C# and wrote my dissertation on the development process. It utilised the [Netcode for GameObjects](https://docs-multiplayer.unity3d.com/netcode/current/about/) library and the [Unity Relay](https://docs.unity.com/ugs/manual/relay/manual/introduction) service.
 
 <hr/>
 

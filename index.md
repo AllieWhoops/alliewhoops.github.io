@@ -5,3 +5,8 @@ title: Homepage
 description: Hi there! My name is Allie, and welcome to my website!
 layout: default
 ---
+
+# **Check out my latest project!**
+- I recently took part in the [2025 GMTK Game Jam](https://itch.io/jam/gmtk-2025), where I produced a small hack-and-slash game revolving around rewinding time to avoid enemy attacks. Check it out below, or see the [portfolio page]({{site.url}}/portfolio/slash-and-learn) to learn more about the development process.
+<iframe frameborder="0" src="https://itch.io/embed/3783369" width="800" height="167"><a href="https://alliewhoops.itch.io/slash-learn-gmtk2025">Slash &amp; Learn - Game Jam Edition by AllieWhoops</a></iframe>
+
