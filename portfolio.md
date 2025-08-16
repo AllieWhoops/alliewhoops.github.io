@@ -5,6 +5,13 @@ permalink: /portfolio/
 description: My portfolio, containing both my university projects and personal experiments!
 ---
 
+# **Slash & Learn** - August 2025
+> [More Info]({{site.url}}/portfolio/slash-and-learn)
+
+I entered the 2025 Gamemaker's Toolkit Game Jam as a solo developer. Taking the theme of 'loops', I developed a singleplayer hack-and-slash game which revolves around the player rewinding time to avoid attacks from enemies.
+
+<hr/>
+
 # **LiTetris** - Summer 2025
 
 > [More Info]({{site.url}}/portfolio/litetris)

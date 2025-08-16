@@ -26,8 +26,7 @@ The premise of the game is that the players take on the role of chickens on a fa
 - The game should have four player classes to facilitate playstyle customisation.
 - The enemies should have different behaviours based on their intelligence level.
 
-### Design
-
+### Design Assumptions
 
  
 # Implementation
