@@ -5,6 +5,8 @@ permalink: /portfolio/
 description: My portfolio, containing both my university projects and personal experiments!
 ---
 
+This is a showcase of some of the development projects I have done. Some of these were part of university projects, whereas others are things I made to teach myself something new, or as part of a game jam. The projects I am most proud of (or learned the most from) have their own dedicated pages, and the smaller ones have summaries on this page.
+
 # **Slash & Learn** - August 2025
 > [More Info]({{site.url}}/portfolio/slash-and-learn)
 
@@ -28,7 +30,6 @@ For my degree project in my final year of university, I created an online turn-b
 <hr/>
 
 # **Study Leave** - Winter 2024
-> *Page coming soon*
 
 <img src="/assets/images/study leave 1.png" style="width:390px;height:225px;margin-right:15px;">
 <img src="/assets/images/study leave 2.png" style="width:390px;height:225px;margin-left:15px;float:right">
@@ -43,7 +44,6 @@ The game used Unity's HD render pipeline to allow for immersive and spooky graph
 <hr/>
 
 # **Brooklyn Nine-Nine Virtual World** - Autumn 2024
-> *Page coming soon*
 
 <img src="/assets/images/b99 1.png" style="width:390px;height:225px;margin-right:15px;">
 <img src="/assets/images/b99 2.png" style="width:390px;height:225px;margin-left:15px;float:right">
@@ -58,7 +58,6 @@ This project was my first time using the Unity Engine to make a 3D enviroment, a
 <hr/>
 
 # **Wizardle** - Spring 2024
-> *Page coming soon*
 
 <img src="/assets/images/wizardle 1.png" style="height:250px;float:left;margin-right:15px">
 <img src="/assets/images/wizardle 2.png" style="height:250px;margin-right:15px;float:left">
