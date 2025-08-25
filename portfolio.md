@@ -9,7 +9,7 @@ This is a showcase of some of the development projects I have done. Some of thes
 
 
 # **Slash & Learn** - August 2025
-> [More Info]({{site.url}}/portfolio/slash-and-learn)
+> More info coming soon
 
 I entered the 2025 Gamemaker's Toolkit Game Jam as a solo developer. Taking the theme of 'loops', I developed a singleplayer hack-and-slash game which revolves around the player rewinding time to avoid attacks from enemies.
 
