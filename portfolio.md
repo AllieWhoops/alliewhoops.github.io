@@ -7,6 +7,7 @@ description: My portfolio, containing both my university projects and personal e
 
 This is a showcase of some of the development projects I have done. Some of these were part of university projects, whereas others are things I made to teach myself something new, or as part of a game jam. The projects I am most proud of (or learned the most from) have their own dedicated pages, and the smaller ones have summaries on this page.
 
+
 # **Slash & Learn** - August 2025
 > More info coming soon!
 
