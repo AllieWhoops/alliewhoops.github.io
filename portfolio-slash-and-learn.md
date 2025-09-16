@@ -14,7 +14,13 @@ The basic concept was inspired by boss fights in games like Final Fantasy XIV, w
 
 # Requirements
 ### Functional Requirements
+- The player should be able to use the keyboard to move the character around the arena.
+- The player should be able to rewind time in the game, undoing damage and attacks that occurred in the past few seconds.
+- The monster should perform a predetermined sequence of attacks, and loop the sequence when it ends.
 ### Non-Functional Requirements
+- The time-rewind animation should replay the past 3 seconds of gameplay with 0.5 second intervals.
+- The monster sequence should last at least 30 seconds.
+- The player should have three health, which restores if the attack is rewound.
 
 # Design
 
