@@ -14,11 +14,20 @@ The basic concept was inspired by boss fights in games like Final Fantasy XIV, w
 
 # Requirements
 ### Functional Requirements
+- The player should be able to use the keyboard to move the character around the arena.
+- The player should be able to rewind time in the game, undoing damage and attacks that occurred in the past few seconds.
+- The monster should perform a predetermined sequence of attacks, and loop the sequence when it ends.
 ### Non-Functional Requirements
+- The time-rewind animation should replay the past 3 seconds of gameplay with 0.5 second intervals.
+- The monster sequence should last at least 30 seconds.
+- The player should have three health, which restores if the attack is rewound.
 
 # Design
 
 ### Player Character Design
+The basic controls of the player character use Unity's InputSystem to take keyboard inputs (W, A, S and D), and applies a linear velocity to the character, moving them at a consistent speed. It also activates animation triggers, so the sprite appears to move as the character does. Initially, I planned to use Unity's CharacterController system to implement movement, but as it was not compatible with rigidbodies (the components that facilitate collisions between objects), I had to adapt.
+
+The player character is also able to attack the enemy by pressing the E key. The character stabs with a sword in the direction they are facing, extending a raycast to detect colliders within the sword's reach. If it collides with an enemy, it is treated as a 'hit' and the enemy takes damage.
 
 ### Enemy Design
 
