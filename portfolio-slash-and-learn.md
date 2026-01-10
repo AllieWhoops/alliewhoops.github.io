@@ -25,6 +25,9 @@ The basic concept was inspired by boss fights in games like Final Fantasy XIV, w
 # Design
 
 ### Player Character Design
+The basic controls of the player character use Unity's InputSystem to take keyboard inputs (W, A, S and D), and applies a linear velocity to the character, moving them at a consistent speed. It also activates animation triggers, so the sprite appears to move as the character does. Initially, I planned to use Unity's CharacterController system to implement movement, but as it was not compatible with rigidbodies (the components that facilitate collisions between objects), I had to adapt.
+
+The player character is also able to attack the enemy by pressing the E key. The character stabs with a sword in the direction they are facing, extending a raycast to detect colliders within the sword's reach. If it collides with an enemy, it is treated as a 'hit' and the enemy takes damage.
 
 ### Enemy Design
 
